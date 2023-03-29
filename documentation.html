@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!--//////////////////////////////////////////-->
+<!-------------------NOTES---------------------->
+<!-----------Work in progress code for FinnGen 
+   by Stella Keppo & Nicola Cerioli------------->
+<!--//////////////////////////////////////////-->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Volcano plot documentation</title>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+
+<body>
+  <div id="documentation">
+    <h1>Documentation</h1>
+    <div>
+      <h4>File input</h4>
+      <p>The LAVAA visualization expects to find the following columns with the following headers:</p>
+      <table>
+        <tr>
+          <th>Column header</th>
+          <th>Required / optional</th>
+          <th>description</th>
+        </tr>
+        <tr>
+          <td>phenostring</td>
+          <td>r</td>
+          <td>A string describing the phenotype</td>
+        </tr>
+        <tr>
+          <td>phenocode</td>
+          <td>o</td>
+          <td>A shorthand code describing the phenotype</td>
+        </tr>
+        <tr>
+          <td>category</td>
+          <td>o</td>
+          <td>In FinnGen data categories are chapters in the ICD10 hierarchy, however, you can introduce your own categories as well.  This enables you to color all conditions affecting a certain organ system or type of disease (cancer, infection, etc) with the same color for the points.  Additionally, convex hulls (see below) can show you where all of these points of one category exist.</td>
+        </tr>
+        <tr>
+          <td>pval</td>
+          <td>r</td>
+          <td>The p -value for the associated phenotype</td>
+        </tr>
+        <tr>
+          <td>beta</td>
+          <td>r</td>
+          <td>The effect size of the genetic association</td>
+        </tr>
+        <tr>
+          <td>n_case</td>
+          <td>o</td>
+          <td>Number of cases</td>
+        </tr>
+        <tr>
+          <td>n_control</td>
+          <td>o</td>
+          <td>Number of controls</td>
+        </tr>
+        <tr>
+          <td>pip</td>
+          <td>o</td>
+          <td>Posterior Inclusion probability - an optional measure from 0-1 that is a result of fine-mapping and indicates which variants in a region are in a credible set</td>
+        </tr>
+      </table>
+      <p>You can download<a href="./6_90267049_G_A_for_LAVAA.tsv" download style="padding-left:1%; padding-right:1%;"> a sample file</a> to use as a template for your own data.
+        Note that the file must be in tsv (tab-separated value format).</p>
+      </p>
+    </div>
+    <div>
+      <h4>User interactions</h4>
+      <div style="padding-left: 5%; border-left: 1px solid black; margin-top: 2em;">
+        <p><b>Datapoint selection</b></p>
+        <p>Brush through the data points by drawing a rectangle anywhere on the chart to see a table of details about the data. You can reset the brush by clicking anywhere on the chart.  To clear the detailed data, press ‘clear selection’.
+        <p><b>Filtering with categories</b></p>
+        <p>You can highlight data points in a phenotypic category by hovering over the legend next to the chart.  For instance, you might want to see all the phenotypes relating to The legend represents the categories of data above the significance line.  FinnGen ICD-based categories are displayed but your own categories can be used also.
+        <p><b>Zooming</b></p>
+        <p>Inspect your own selection by drawing a rectangle anywhere on the chart and pressing enter.
+        <p><b>Marking the points</b></p>
+        <p>Mark interesting data points by clicking on them and move the label around by dragging it. Reset the label by double-clicking the point.</p>
+      </div>
+      
+      <h4>Visualization elements</h4>
+      <div style="padding-left: 5%; border-left: 1px solid black; margin-top: 2em;">
+        <p><b>Significance threshold</b></p>
+        <p>A line at 5.8 e^-8 indicates the threshold for genomewide significant results.  
+        <p><b>Convex hulls</b></p>
+        <p>A convex hull is the smallest convex polygon containing a set of points on a grid. In LAVAA they are used to connect all the data points that are in a particular category of associations.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
